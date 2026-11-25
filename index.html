@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>منصة عباقرة الرياضيات | أ. Aishah Jabour</title>
+<style>
+  :root {
+    --primary: #3730a3;
+    --primary-dark: #1e1b4b;
+    --accent: #0d9488;
+    --accent-light: #ccfbf1;
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #dc2626;
+    --radius: 16px;
+    --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .protected-brand {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.075;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='%231e1b4b' font-family='Georgia, serif' font-size='22' font-weight='bold'%3E%3Ctext x='18' y='38'%3E%E2%88%91%3C/text%3E%3Ctext x='85' y='34'%3Ex²+y²%3C/text%3E%3Ctext x='175' y='42'%3E%CF%80%3C/text%3E%3Ctext x='225' y='36'%3E%E2%89%A0%3C/text%3E%3Ctext x='32' y='96'%3E%D8%B3%2B%D8%B5%3C/text%3E%3Ctext x='115' y='92'%3E%E2%88%9A144%3C/text%3E%3Ctext x='190' y='98'%3E%E2%88%AB%3C/text%3E%3Ctext x='20' y='158'%3E%D9%A1%D9%A2%D9%A3%3C/text%3E%3Ctext x='92' y='154'%3E%E2%88%9E%3C/text%3E%3Ctext x='152' y='158'%3Esin(θ)%3C/text%3E%3Ctext x='222' y='152'%3E%C3%B7%3C/text%3E%3Ctext x='36' y='222'%3E%E2%89%A4%3C/text%3E%3Ctext x='104' y='218'%3E7×8=56%3C/text%3E%3Ctext x='186' y='224'%3E%E2%88%86%3C/text%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .app-shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 18px 16px 80px;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .topbar {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .brand-title {
+    margin: 0;
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+
+  .brand-sub {
+    margin: 4px 0 0;
+    font-size: 0.92rem;
+    opacity: 0.92;
+  }
+
+  .author-badge {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+
+  .quote-banner {
+    background: linear-gradient(90deg, #eef2ff, #f0fdfa);
+    border-right: 5px solid var(--primary);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.02rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    font-size: 0.98rem;
+    background: #fff;
+    color: var(--text);
+  }
+
+  input[type="text"]:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 0.96rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.12s ease, opacity 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background: #e2e8f0;
+    color: var(--text);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+  }
+
+  .btn-sm {
+    padding: 8px 13px;
+    font-size: 0.86rem;
+    border-radius: 10px;
+  }
+
+  .student-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+  }
+
+  .student-info {
+    font-weight: 700;
+    color: var(--primary-dark);
+  }
+
+  .selector-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .chapters-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .chip {
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+
+  .chip.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  .lessons-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .lesson-btn {
+    text-align: right;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: #f8fafc;
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.92rem;
+  }
+
+  .lesson-btn.active {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: #0f766e;
+  }
+
+  .lesson-key-box {
+    background: #fffbeb;
+    border: 1.5px solid #fcd34d;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .core-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .point-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+  }
+
+  .ltr-math {
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-family: "Cambria Math", "Times New Roman", serif;
+    font-weight: 700;
+  }
+
+  .question-box {
+    background: #f8fafc;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+
+  .options-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .option-btn {
+    width: 100%;
+    text-align: right;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-size: 0.96rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .option-btn:hover {
+    border-color: var(--primary);
+    background: #eef2ff;
+  }
+
+  .feedback-box {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+
+  .feedback-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+  }
+
+  .feedback-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+
+  .graph-lab {
+    background: #f0fdfa;
+    border: 1.5px solid #99f6e4;
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  canvas.graph-canvas {
+    width: 100%;
+    max-width: 460px;
+    height: 260px;
+    display: block;
+    margin: 12px auto;
+    background: #fff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    touch-action: none;
+  }
+
+  .footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(30, 27, 75, 0.96);
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 0.84rem;
+    text-align: center;
+    backdrop-filter: blur(6px);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: right;
+  }
+
+  th {
+    background: #eef2ff;
+    color: var(--primary-dark);
+  }
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar protected-brand">
+    <div>
+      <h1 class="brand-title">منصة عباقرة الرياضيات</h1>
+      <p class="brand-sub">بوابتكِ التفاعلية للفهم العميق، الفهم القرائي، والاستعداد للاختبارات (نافس، القدرات، التحصيلي)</p>
+    </div>
+    <div class="author-badge">إعداد وتصميم: أ. Aishah Jabour</div>
+  </header>
+
+  <div class="quote-banner protected-brand">
+    «الرياضيات كنز من كنوز العلم وعلينا فهمها لنرتقي في علمنا» — أ. Aishah Jabour
+  </div>
+
+  <section id="login-screen" class="card">
+    <h2 style="margin-top:0; color:var(--primary-dark);">تسجيل دخول الطالبة</h2>
+    <p style="color:var(--muted); margin-top:-6px;">أدخلي اسمكِ الثلاثي واختاري المرحلة الدراسية لتفعيل المتابعة والتدريب التفاعلي.</p>
+
+    <div class="form-grid">
+      <div>
+        <label for="student-name-input">الاسم الثلاثي للطالبة</label>
+        <input id="student-name-input" type="text" placeholder="مثال: سارة محمد..." />
+      </div>
+      <div>
+        <label for="grade-select-login">المرحلة الدراسية</label>
+        <select id="grade-select-login">
+          <option value="grade4">الصف الرابع الابتدائي</option>
+          <option value="grade2mid" selected>الصف الثاني متوسط</option>
+          <option value="grade2sec">الصف الثاني ثانوي</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <button id="enter-app-btn" class="btn btn-primary" onclick="loginStudent()">دخول المنصة وتثبيت الحضور</button>
+      <button id="open-dashboard-btn" class="btn btn-secondary" onclick="openTeacherDashboard()">لوحة متابعة المعلمة (1234)</button>
+    </div>
+  </section>
+
+  <section id="main-app" class="hidden">
+    <div class="student-bar">
+      <div class="student-info" id="student-greeting">مرحباً بكِ</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <button class="btn btn-sm btn-outline" onclick="openTeacherDashboard()">لوحة المعلمة</button>
+        <button class="btn btn-sm btn-secondary" onclick="logoutStudent()">تبديل الطالبة / خروج</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="selector-row">
+        <div>
+          <label for="grade-switcher">المرحلة الدراسية</label>
+          <select id="grade-switcher" onchange="onGradeOrSemesterChange()">
+            <option value="grade4">الصف الرابع الابتدائي</option>
+            <option value="grade2mid">الصف الثاني متوسط</option>
+            <option value="grade2sec">الصف الثاني ثانوي</option>
+          </select>
+        </div>
+        <div>
+          <label for="semester-switcher">الفصل الدراسي</label>
+          <select id="semester-switcher" onchange="onGradeOrSemesterChange()">
+            <option value="sem1">الفصل الدراسي الأول</option>
+            <option value="sem2">الفصل الدراسي الثاني</option>
+          </select>
+        </div>
+      </div>
+
+      <label>الفصول الدراسية</label>
+      <div id="chapters-strip" class="chapters-strip"></div>
+
+      <label>دروس الفصل</label>
+      <div id="lessons-list" class="lessons-list"></div>
+    </div>
+
+    <div id="lesson-workspace" class="card">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;">
+        <div>
+          <span id="lesson-badge" style="background:#eef2ff; color:var(--primary); padding:4px 10px; border-radius:999px; font-size:0.82rem; font-weight:700;"></span>
+          <h2 id="lesson-title" style="margin:8px 0 0; color:var(--primary-dark);"></h2>
+        </div>
+        <button class="btn btn-sm btn-accent" onclick="showReadingComprehension()">الفهم القرائي للدرس</button>
+      </div>
+
+      <div class="lesson-key-box">
+        <strong>مفتاح الدرس:</strong>
+        <p id="lesson-key-text" style="margin:6px 0 0; line-height:1.7;"></p>
+      </div>
+
+      <div id="core-points-container" class="core-points"></div>
+
+      <div class="question-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <strong>تدريب الفهم التفاعلي</strong>
+          <span id="question-variant-label" style="font-size:0.84rem; color:var(--muted); font-weight:700;">السؤال الأساسي</span>
+        </div>
+        <p id="question-prompt" style="font-size:1.05rem; font-weight:700; margin:10px 0;"></p>
+        <div id="options-container" class="options-grid"></div>
+        <div id="question-feedback" class="feedback-box hidden"></div>
+        <div id="remediation-box" class="hidden" style="margin-top:14px; padding:14px; border-radius:12px; background:#fff7ed; border:1px solid #fdba74;">
+          <strong>إثراء مصوّر موجّه عند الخطأ:</strong>
+          <p id="remediation-note" style="margin:6px 0 10px; font-size:0.94rem;"></p>
+          <a id="remediation-video-link" href="#" target="_blank" rel="noopener" class="btn btn-sm btn-primary">مشاهدة المقطع الإثرائي المحدد</a>
+        </div>
+      </div>
+
+      <div id="reading-box" class="question-box hidden" style="background:#f0f9ff; border-color:#bae6fd;">
+        <strong>الفهم القرائي الرياضي (تقييم تلقائي)</strong>
+        <p id="reading-passage" style="margin:10px 0; line-height:1.75;"></p>
+        <p id="reading-question" style="font-weight:700; margin:8px 0;"></p>
+        <div id="reading-options" class="options-grid"></div>
+        <div id="reading-feedback" class="feedback-box hidden"></div>
+      </div>
+
+      <div class="graph-lab">
+        <strong>مختبر الرسم التفاعلي (الميل ومنطقة الحل)</strong>
+        <p style="margin:6px 0 10px; font-size:0.92rem; color:#115e59;">
+          انقري أو اسحبي على المستوى الإحداثي لتحديد نقطتين وحساب الميل $m = \frac{y_2 - y_1}{x_2 - x_1}$ واستكشاف منطقة الحل.
+        </p>
+        <canvas id="math-graph-canvas" class="graph-canvas" width="460" height="260"></canvas>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
+          <div id="graph-readout" style="font-weight:700; color:#0f766e;">النقاط: لم تُحدّد بعد | الميل: —</div>
+          <button class="btn btn-sm btn-secondary" onclick="resetGraphPoints()">مسح النقاط</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teacher-screen" class="card hidden">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;">
+      <div>
+        <h2 style="margin:0; color:var(--primary-dark);">لوحة متابعة المعلمة — أ. Aishah Jabour</h2>
+        <p style="margin:4px 0 0; color:var(--muted); font-size:0.92rem;">«الرياضيات كنز من كنوز العلم وعلينا فهمها لنرتقي في علمنا»</p>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn btn-sm btn-accent" onclick="exportTeacherReport()">تصدير تقرير HTML</button>
+        <button class="btn btn-sm btn-secondary" onclick="closeTeacherDashboard()">عودة</button>
+      </div>
+    </div>
+    <div id="teacher-logs-container" style="margin-top:14px; overflow-x:auto;"></div>
+  </section>
+</div>
+
+<footer class="footer-bar protected-brand">
+  الرياضيات كنز من كنوز العلم وعلينا فهمها لنرتقي في علمنا — جميع الحقوق محفوظة لـ <strong>أ. Aishah Jabour</strong>
+</footer>
+
+<script>
+const CURRICULUM = {
+  grade4: {
+    label: "الصف الرابع الابتدائي",
+    mathDir: "ar",
+    sem1: [
+      {
+        id: "g4-s1-c1",
+        title: "الفصل ١: القيمة المنزلية",
+        lessons: [
+          {
+            id: "g4-s1-c1-l1",
+            title: "القيمة المنزلية ضمن مئات الألوف",
+            key: "تعتمد قيمة الرقم في العدد على منزلته (آحاد، عشرات، مئات، ألوف، عشرات الألوف، مئات الألوف).",
+            points: [
+              { title: "قراءة الأعداد", body: "نقسم العدد إلى دورات كل دورة تتكون من ٣ أرقام من اليمين." },
+              { title: "الصيغ العددية", body: "القياسية بالأرقام، والتحليلية بجمع قيم الأرقام، واللفظية بالكلمات." },
+              { title: "قيمة الرقم", body: "نحدد المنزلة ثم نكتب الرقم وبجانبه أصفار المنازل التي على يمينه." }
+            ],
+            questions: [
+              {
+                prompt: "ما القيمة المنزلية للرقم ٦ في العدد ٤٦٢٬٨١٥؟",
+                options: ["٦٠٬٠٠٠", "٦٬٠٠٠", "٦٠٠"],
+                correct: 0,
+                remediationNote: "الرقم ٦ يقع في منزلة عشرات الألوف، وأمامه ٤ منازل لذا نضع ٤ أصفار: ٦٠٬٠٠٠."
+              },
+              {
+                prompt: "أي عدد يمثل الرقم ٥ في منزلة مئات الألوف؟",
+                options: ["٥١٢٬٣٤٠", "١٥٢٬٣٤٠", "١٢٥٬٣٤٠"],
+                correct: 0,
+                remediationNote: "منزلة مئات الألوف هي المنزلة السادسة من اليمين؛ في ٥١٢٬٣٤٠ يقع الرقم ٥ في مئات الألوف."
+              }
+            ],
+            reading: {
+              passage: "سجّلت مكتبة مدرسية ٣٤٥٬٢٨٠ زيارة خلال العام، بينما سجّلت مكتبة أخرى ٣٤٥٬٨٢٠ زيارة.",
+              question: "ما القيمة المنزلية للرقم ٨ في المكتبة الثانية مقارنة بالمكتبة الأولى؟",
+              options: ["٨٠٠ في الثانية و٨٠ في الأولى", "٨٠ في الثانية و٨٠٠ في الأولى", "٨٬٠٠٠ في الثانية و٨٠٠ في الأولى"],
+              correct: 0
+            },
+            videoQuery: "القيمة المنزلية ضمن مئات الألوف رابع ابتدائي"
+          },
+          {
+            id: "g4-s1-c1-l2",
+            title: "مقارنة الأعداد وترتيبها",
+            key: "نبدأ المقارنة من أكبر منزلة جهة اليسار؛ وإذا تساوت الأرقام ننتقل للمنزلة التي تليها.",
+            points: [
+              { title: "مقارنة عددين", body: "نعد المنازل أولاً، ثم نقارن من اليسار إلى اليمين." },
+              { title: "رموز المقارنة", body: "نستخدم (> أو < أو =) بدقة حسب اتجاه الفتحة نحو العدد الأكبر." },
+              { title: "ترتيب الأعداد", body: "نرتب تصاعدياً من الأصغر للأكبر أو تنازلياً من الأكبر للأصغر." }
+            ],
+            questions: [
+              {
+                prompt: "قارني بين العددين: ٧٨٬٤٥٠ ( ) ٧٨٬٥٤٠",
+                options: ["<", ">", "="],
+                correct: 0,
+                remediationNote: "الآلاف متساوية (٧٨)، وفي المئات ٤ أصغر من ٥، إذن ٧٨٬٤٥٠ < ٧٨٬٥٤٠."
+              },
+              {
+                prompt: "أي الأعداد التالية هو الأصغر؟",
+                options: ["٩٢٬١٠٠", "٩٢٬٠١٠", "٩٢٬١٠١"],
+                correct: 1,
+                remediationNote: "ننظر إلى منزلة المئات والعشرات: ٩٢٬٠١٠ مئاته ٠ وهي الأصغر."
+              }
+            ],
+            reading: {
+              passage: "بلغ عدد الحضور في اليوم الأول ١٤٬٦٢٠ طالبة، وفي اليوم الثاني ١٤٬٢٦٠ طالبة، وفي اليوم الثالث ١٤٬٦٠٢ طالبة.",
+              question: "ما اليوم الذي شهد أقل حضور؟",
+              options: ["اليوم الثاني", "اليوم الأول", "اليوم الثالث"],
+              correct: 0
+            },
+            videoQuery: "مقارنة الأعداد وترتيبها رابع ابتدائي"
+          }
+        ]
+      },
+      {
+        id: "g4-s1-c2",
+        title: "الفصل ٢: الجمع والطرح",
+        lessons: [
+          {
+            id: "g4-s1-c2-l1",
+            title: "خصائص الجمع وقواعد الطرح",
+            key: "الجمع إبدالي وتجميعي وله عنصر محايد هو (٠)، وطرح الصفر من أي عدد يبقي العدد كما هو.",
+            points: [
+              { title: "الخاصية الإبدالية", body: "تغيير ترتيب الأعداد المضافة لا يغيّر المجموع." },
+              { title: "الخاصية التجميعية", body: "تغيير طريقة وضع الأقواس في الجمع لا يغيّر الناتج." },
+              { title: "العنصر المحايد والطرح", body: "الجمع مع الصفر يحفظ العدد، وطرح عدد من نفسه يساوي صفراً." }
+            ],
+            questions: [
+              {
+                prompt: "ما العدد الذي يجعل الجملة صحيحة: (١٢ + ٨) + ٥ = ١٢ + ( ... + ٥ )؟",
+                options: ["٨", "٥", "١٢"],
+                correct: 0,
+                remediationNote: "بحسب الخاصية التجميعية للجمع، العدد الناقص داخل القوس هو ٨."
+              },
+              {
+                prompt: "ما ناتج ٤٧٬٥٠٠ − ٤٧٬٥٠٠؟",
+                options: ["٠", "٤٧٬٥٠٠", "١"],
+                correct: 0,
+                remediationNote: "طرح أي عدد من نفسه يساوي صفراً دائماً."
+              }
+            ],
+            reading: {
+              passage: "ادّخرت روان ٢٥٠ ريالاً في الأسبوع الأول و٣٠٠ ريال في الأسبوع الثاني، بينما ادّخرت لمى ٣٠٠ ريال في الأول و٢٥٠ ريالاً في الثاني.",
+              question: "أي خاصية تفسر تساوي مجموع ادخار الطالبتين؟",
+              options: ["الخاصية الإبدالية للجمع", "الخاصية التجميعية للجمع", "طرح الصفر"],
+              correct: 0
+            },
+            videoQuery: "خصائص الجمع وقواعد الطرح رابع ابتدائي"
+          }
+        ]
+      }
+    ],
+    sem2: [
+      {
+        id: "g4-s2-c7",
+        title: "الفصل ٧: القسمة على عدد من رقم واحد",
+        lessons: [
+          {
+            id: "g4-s2-c7-l1",
+            title: "القسمة مع باقٍ",
+            key: "في القسمة مع باقٍ: المقسوم = (المقسوم عليه × الناتج) + الباقي، ويجب أن يكون الباقي أصغر من المقسوم عليه.",
+            points: [
+              { title: "عناصر القسمة", body: "المقسوم، المقسوم عليه، ناتج القسمة، والباقي." },
+              { title: "شرط الباقي", body: "الباقي دائماً أقل من المقسوم عليه." },
+              { title: "التحقق من الحل", body: "نضرب الناتج في المقسوم عليه ثم نضيف الباقي." }
+            ],
+            questions: [
+              {
+                prompt: "عند قسمة ٢٩ على ٤، ما ناتج القسمة والباقي؟",
+                options: ["الناتج ٧ والباقي ١", "الناتج ٦ والباقي ٥", "الناتج ٧ والباقي ٢"],
+                correct: 0,
+                remediationNote: "٤ × ٧ = ٢٨، والباقي ٢٩ − ٢٨ = ١ (وهو أصغر من ٤)."
+              },
+              {
+                prompt: "أي باقٍ غير ممكن عند القسمة على ٦؟",
+                options: ["٦", "٤", "٢"],
+                correct: 0,
+                remediationNote: "الباقي يجب أن يكون أصغر من المقسوم عليه (٦)، لذا ٦ غير ممكن كباقٍ."
+              }
+            ],
+            reading: {
+              passage: "وزّعت معلمة ٤٣ قلماً بالتساوي على ٨ طالبات وأبقت الباقي لنفسها.",
+              question: "كم قلماً تأخذ كل طالبة وكم قلماً يتبقى؟",
+              options: ["٥ أقلام لكل طالبة وباقي ٣", "٦ أقلام لكل طالبة وباقي ١", "٤ أقلام لكل طالبة وباقي ١١"],
+              correct: 0
+            },
+            videoQuery: "القسمة مع باق رابع ابتدائي"
+          }
+        ]
+      }
+    ]
+  },
+  grade2mid: {
+    label: "الصف الثاني متوسط",
+    mathDir: "en",
+    sem1: [
+      {
+        id: "m2-s1-c1",
+        title: "الفصل 1: الأعداد النسبية",
+        lessons: [
+          {
+            id: "m2-s1-c1-l1",
+            title: "الأعداد النسبية",
+            key: "العدد النسبي هو عدد يمكن كتابته على صورة كسر $\\frac{a}{b}$ حيث $a$ و $b$ عددان صحيحان و $b \\neq 0$.",
+            points: [
+              { title: "تعريف الكسر النسبي", body: "كل عدد صحيح أو كسر عشري منتهٍ أو دوري هو عدد نسبي." },
+              { title: "تحويل الكسور", body: "نحول الكسر الاعتيادي إلى عشري بالقسمة المطولة أو بتكافؤ المقامات." },
+              { title: "الأعداد الكسرية", body: "نكتب العدد الكسري على صورة كسر غير فعلي لتسهيل العمليات." }
+            ],
+            questions: [
+              {
+                prompt: "ما الصورة العشرية للكسر النسبي $\\frac{3}{4}$؟",
+                options: ["0.75", "0.34", "1.25"],
+                correct: 0,
+                remediationNote: "نقسم $3 \\div 4 = 0.75$ لأن $\\frac{3}{4} = \\frac{75}{100}$."
+              },
+              {
+                prompt: "أي من الأعداد التالية يُعد عدداً نسبياً؟",
+                options: ["-2.5", "$\\sqrt{2}$", "$\\pi$"],
+                correct: 0,
+                remediationNote: "العدد $-2.5$ يمكن كتابته على صورة $-\\frac{5}{2}$ فهو عدد نسبي."
+              }
+            ],
+            reading: {
+              passage: "سجّلت قراءة مقياس حرارة $-3.6^\\circ\\text{C}$ صباحاً وارتفعت بمقدار $1.4^\\circ\\text{C}$ ظهراً.",
+              question: "ما القراءة الجديدة لمقياس الحرارة ظهراً؟",
+              options: ["$-2.2^\\circ\\text{C}$", "$-5.0^\\circ\\text{C}$", "$2.2^\\circ\\text{C}$"],
+              correct: 0
+            },
+            videoQuery: "الأعداد النسبية ثاني متوسط"
+          },
+          {
+            id: "m2-s1-c1-l2",
+            title: "ضرب الأعداد النسبية وقسمتها",
+            key: "لضرب عددين نسبيين نضرب البسط في البسط والمقام في المقام، وللقسمة نضرب في النظير الضربي (المقلوب).",
+            points: [
+              { title: "قاعدة الإشارات", body: "ضرب أو قسمة عددين لهما الإشارة نفسها يعطي موجباً، وبإشارتين مختلفتين يعطي سالباً." },
+              { title: "التبسيط قبل الضرب", body: "اختصار العوامل المشتركة بين البسط والمقام يسهّل الحساب." },
+              { title: "النظير الضربي", body: "مقلوب الكسر $\\frac{a}{b}$ هو $\\frac{b}{a}$ بشرط ألا يساوي الصفر." }
+            ],
+            questions: [
+              {
+                prompt: "أوجدي ناتج الضرب: $(-\\frac{2}{3}) \\times (\\frac{9}{4})$",
+                options: ["$-\\frac{3}{2}$", "$\\frac{3}{2}$", "$-\\frac{6}{7}$"],
+                correct: 0,
+                remediationNote: "سالب × موجب = سالب، وبعد التبسيط $\\frac{2}{4} = \\frac{1}{2}$ و $\\frac{9}{3} = 3$ ينتج $-\\frac{3}{2}$."
+              },
+              {
+                prompt: "ما ناتج قسمة $\\frac{1}{2} \\div (-\\frac{3}{4})$؟",
+                options: ["$-\\frac{2}{3}$", "$\\frac{2}{3}$", "$-\\frac{3}{8}$"],
+                correct: 0,
+                remediationNote: "نضرب في المقلوب: $\\frac{1}{2} \\times (-\\frac{4}{3}) = -\\frac{4}{6} = -\\frac{2}{3}$."
+              }
+            ],
+            reading: {
+              passage: "تستهلك مضخة مياه $\\frac{2}{5}$ من خزانها كل ساعة عمل.",
+              question: "كم جزءاً من الخزان تستهلك في $2.5$ ساعة؟",
+              options: ["$1$ خزان كامل", "$\\frac{4}{5}$ من الخزان", "$\\frac{1}{2}$ من الخزان"],
+              correct: 0
+            },
+            videoQuery: "ضرب الأعداد النسبية وقسمتها ثاني متوسط"
+          }
+        ]
+      }
+    ],
+    sem2: [
+      {
+        id: "m2-s2-c5",
+        title: "الفصل 5: الهندسة والاستدلال المكاني",
+        lessons: [
+          {
+            id: "m2-s2-c5-l1",
+            title: "علاقات الزوايا والمستقيمات",
+            key: "الزاويتان المتكاملتان مجموع قياسيهما $180^\\circ$، والمتتامتان مجموع قياسيهما $90^\\circ$، والمتقابلتان بالرأس متطابقتان.",
+            points: [
+              { title: "التقابل بالرأس", body: "الزوايا المتقابلة بالرأس الناتجة عن تقاطع مستقيمين متساوية في القياس." },
+              { title: "التكامل والتتام", body: "الزاوية المستقيمة $180^\\circ$ والزاوية القائمة $90^\\circ$." },
+              { title: "المستقيمات المتوازية وقاطعها", body: "تتشكل زوايا متناظرة ومتبادلة داخلياً متطابقة عند توازي المستقيمين." }
+            ],
+            questions: [
+              {
+                prompt: "إذا كانت زاويتان متكاملتين وقياس إحداهما $65^\\circ$، فما قياس الأخرى؟",
+                options: ["$115^\\circ$", "$25^\\circ$", "$65^\\circ$"],
+                correct: 0,
+                remediationNote: "الزاويتان المتكاملتان مجموعهما $180^\\circ$؛ إذن $180^\\circ - 65^\\circ = 115^\\circ$."
+              },
+              {
+                prompt: "زاويتان متقابلتان بالرأس قياس الأولى $(2x)^\\circ$ والثانية $80^\\circ$، فما قيمة $x$؟",
+                options: ["$40$", "$80$", "$20$"],
+                correct: 0,
+                remediationNote: "الزوايا المتقابلة بالرأس متطابقة: $2x = 80 \\Rightarrow x = 40$."
+              }
+            ],
+            reading: {
+              passage: "يقطع جسر مشاة طريقين متوازيين مكوناً زاوية داخلية متبادلة مع زاوية أخرى قياسها $52^\\circ$.",
+              question: "ما قياس الزاوية الداخلية المتبادلة؟",
+              options: ["$52^\\circ$", "$128^\\circ$", "$38^\\circ$"],
+              correct: 0
+            },
+            videoQuery: "علاقات الزوايا والمستقيمات ثاني متوسط"
+          }
+        ]
+      }
+    ]
+  },
+  grade2sec: {
+    label: "الصف الثاني ثانوي",
+    mathDir: "en",
+    sem1: [
+      {
+        id: "s2-s1-c1",
+        title: "الفصل 1: الدوال والمتباينات",
+        lessons: [
+          {
+            id: "s2-s1-c1-l1",
+            title: "خصائص الأعداد الحقيقية والدوال",
+            key: "الدالة تربط كل عنصر في المجال بعنصر واحد فقط في المدى، ويمثل الميل $m = \\frac{y_2 - y_1}{x_2 - x_1}$ معدل التغير.",
+            points: [
+              { title: "اختبار الخط الرأسي", body: "إذا قطع أي خط رأسي التمثيل البياني في نقطة واحدة فقط فالعلاقة تمثل دالة." },
+              { title: "المجال والمدى", body: "المجال قيم $x$ الممكنة، والمدى قيم $y$ الناتجة." },
+              { title: "ميل المستقيم", body: "الميل الموجب يدل على تزايد الدالة، والسالب على تناقصها." }
+            ],
+            questions: [
+              {
+                prompt: "أوجدي ميل المستقيم المار بالنقطتين $(2, 3)$ و $(6, 11)$:",
+                options: ["$2$", "$\\frac{1}{2}$", "$4$"],
+                correct: 0,
+                remediationNote: "$m = \\frac{11 - 3}{6 - 2} = \\frac{8}{4} = 2$."
+              },
+              {
+                prompt: "أي مجموعة أزواج مرتبة تمثل دالة؟",
+                options: ["$(1, 4), (2, 4), (3, 5)$", "$(1, 2), (1, 5), (2, 3)$", "$(4, 1), (4, 2), (5, 3)$"],
+                correct: 0,
+                remediationNote: "في الدالة لا يتكرر إحداثي $x$ لقيم مختلفة من $y$؛ هنا قيم $x$ هي $1, 2, 3$ جميعها مختلفة."
+              }
+            ],
+            reading: {
+              passage: "تُنمذج تكلفة رحلة بسيارة أجرة بالدالة $C(d) = 5 + 2d$ حيث $d$ المسافة بالكيلومترات.",
+              question: "ما معدل التغير (الميل) وماذا يمثل؟",
+              options: ["$2$ ويمثل تكلفة كل كيلومتر", "$5$ ويمثل تكلفة كل كيلومتر", "$7$ ويمثل التكلفة الثابتة"],
+              correct: 0
+            },
+            videoQuery: "خصائص الأعداد الحقيقية والدوال ثاني ثانوي"
+          }
+        ]
+      }
+    ],
+    sem2: [
+      {
+        id: "s2-s2-c4",
+        title: "الفصل 4: حساب المثلثات",
+        lessons: [
+          {
+            id: "s2-s2-c4-l1",
+            title: "الدوال المثلثية في المثلثات القائمة",
+            key: "في المثلث القائم الزاوية: $\\sin\\theta = \\frac{\\text{المقابل}}{\\text{الوتر}}$، $\\cos\\theta = \\frac{\\text{المجاور}}{\\text{الوتر}}$، $\\tan\\theta = \\frac{\\text{المقابل}}{\\text{المجاور}}$.",
+            points: [
+              { title: "الجيب وجيب التمام", body: "الوتر هو أطول ضلع في المثلث القائم ويقابل الزاوية القائمة." },
+              { title: "الظل", body: "يساوي $\\frac{\\sin\\theta}{\\cos\\theta}$ بشرط $\\cos\\theta \\neq 0$." },
+              { title: "الزوايا الخاصة", body: "نستفيد من نسب $30^\\circ$ و $45^\\circ$ و $60^\\circ$ في الحل الدقيق." }
+            ],
+            questions: [
+              {
+                prompt: "في مثلث قائم الزاوية، إذا كان طول الضلع المقابل للزاوية $\\theta$ يساوي $3$ وطول الوتر $5$، فما قيمة $\\sin\\theta$؟",
+                options: ["$\\frac{3}{5}$", "$\\frac{4}{5}$", "$\\frac{3}{4}$"],
+                correct: 0,
+                remediationNote: "$\\sin\\theta = \\frac{\\text{المقابل}}{\\text{الوتر}} = \\frac{3}{5}$."
+              },
+              {
+                prompt: "ما قيمة $\\sin(30^\\circ)$؟",
+                options: ["$0.5$", "$\\frac{\\sqrt{3}}{2}$", "$1$"],
+                correct: 0,
+                remediationNote: "من النسب المثلثية للزوايا الخاصة، $\\sin(30^\\circ) = \\frac{1}{2} = 0.5$."
+              }
+            ],
+            reading: {
+              passage: "يستند سلم طوله $10\\text{ m}$ على جدار رأسي ويصنع زاوية $60^\\circ$ مع الأرض الأفقية.",
+              question: "أي نسبة مثلثية تُستخدم لإيجاد ارتفاع الجدار الذي يصل إليه السلم؟",
+              options: ["$\\sin(60^\\circ) = \\frac{h}{10}$", "$\\cos(60^\\circ) = \\frac{h}{10}$", "$\\tan(60^\\circ) = \\frac{h}{10}$"],
+              correct: 0
+            },
+            videoQuery: "الدوال المثلثية في المثلثات القائمة ثاني ثانوي"
+          }
+        ]
+      }
+    ]
+  }
+};
+
+let currentStudent = null;
+let activeGrade = "grade2mid";
+let activeSemester = "sem1";
+let activeChapterIdx = 0;
+let activeLessonIdx = 0;
+let currentQuestionIdx = 0;
+let wrongAttemptsOnCurrentQuestion = 0;
+let graphPoints = [];
+
+const STORAGE_LOGS_KEY = "genius_math_student_logs_v1";
+
+function loadLogs() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_LOGS_KEY) || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function saveLogs(logs) {
+  localStorage.setItem(STORAGE_LOGS_KEY, JSON.stringify(logs));
+}
+
+function recordStudentActivity(actionType, extra = {}) {
+  if (!currentStudent) return;
+  const logs = loadLogs();
+  logs.unshift({
+    name: currentStudent.name,
+    gradeLabel: CURRICULUM[currentStudent.grade]?.label || currentStudent.grade,
+    semesterLabel: activeSemester === "sem1" ? "الفصل الأول" : "الفصل الثاني",
+    lessonTitle: getCurrentLesson()?.title || "—",
+    actionType,
+    scoreInfo: extra.scoreInfo || "—",
+    timestamp: new Date().toLocaleString("ar-SA")
+  });
+  saveLogs(logs.slice(0, 300));
+}
+
+function loginStudent() {
+  const nameInput = document.getElementById("student-name-input");
+  const gradeSelect = document.getElementById("grade-select-login");
+  const name = (nameInput.value || "").trim();
+  if (!name) {
+    alert("يرجى إدخال الاسم الثلاثي للطالبة أولاً.");
+    nameInput.focus();
+    return;
+  }
+
+  currentStudent = {
+    name,
+    grade: gradeSelect.value
+  };
+  activeGrade = gradeSelect.value;
+  activeSemester = "sem1";
+  activeChapterIdx = 0;
+  activeLessonIdx = 0;
+
+  document.getElementById("grade-switcher").value = activeGrade;
+  document.getElementById("semester-switcher").value = activeSemester;
+  document.getElementById("student-greeting").textContent =
+    `مرحباً بكِ يا ${currentStudent.name} — ${CURRICULUM[activeGrade].label}`;
+
+  document.getElementById("login-screen").classList.add("hidden");
+  document.getElementById("teacher-screen").classList.add("hidden");
+  document.getElementById("main-app").classList.remove("hidden");
+
+  recordStudentActivity("تسجيل دخول وتثبيت حضور");
+  renderChaptersAndLessons();
+  initGraphCanvas();
+}
+
+function logoutStudent() {
+  currentStudent = null;
+  document.getElementById("main-app").classList.add("hidden");
+  document.getElementById("teacher-screen").classList.add("hidden");
+  document.getElementById("login-screen").classList.remove("hidden");
+}
+
+function onGradeOrSemesterChange() {
+  activeGrade = document.getElementById("grade-switcher").value;
+  activeSemester = document.getElementById("semester-switcher").value;
+  activeChapterIdx = 0;
+  activeLessonIdx = 0;
+  renderChaptersAndLessons();
+}
+
+function getChapters() {
+  return CURRICULUM[activeGrade]?.[activeSemester] || [];
+}
+
+function getCurrentLesson() {
+  const chapters = getChapters();
+  const chapter = chapters[activeChapterIdx] || chapters[0];
+  if (!chapter) return null;
+  return chapter.lessons[activeLessonIdx] || chapter.lessons[0] || null;
+}
+
+function renderChaptersAndLessons() {
+  const chapters = getChapters();
+  const chaptersStrip = document.getElementById("chapters-strip");
+  const lessonsList = document.getElementById("lessons-list");
+
+  chaptersStrip.innerHTML = "";
+  lessonsList.innerHTML = "";
+
+  if (!chapters.length) {
+    lessonsList.innerHTML = "<p>لا توجد فصول مضافة لهذا الاختيار حالياً.</p>";
+    return;
+  }
+
+  chapters.forEach((ch, idx) => {
+    const btn = document.createElement("button");
+    btn.className = "chip" + (idx === activeChapterIdx ? " active" : "");
+    btn.textContent = ch.title;
+    btn.onclick = () => {
+      activeChapterIdx = idx;
+      activeLessonIdx = 0;
+      renderChaptersAndLessons();
+    };
+    chaptersStrip.appendChild(btn);
+  });
+
+  const currentChapter = chapters[activeChapterIdx] || chapters[0];
+  currentChapter.lessons.forEach((ls, lIdx) => {
+    const btn = document.createElement("button");
+    btn.className = "lesson-btn" + (lIdx === activeLessonIdx ? " active" : "");
+    btn.textContent = ls.title;
+    btn.onclick = () => {
+      activeLessonIdx = lIdx;
+      renderChaptersAndLessons();
+    };
+    lessonsList.appendChild(btn);
+  });
+
+  renderLessonWorkspace();
+}
+
+function formatMathText(text) {
+  const isEnglishGrade = CURRICULUM[activeGrade]?.mathDir === "en";
+  if (!isEnglishGrade) return text;
+  return text.replace(/(\$[^$]+\$)/g, '<span class="ltr-math">$1</span>');
+}
+
+function renderLessonWorkspace() {
+  const lesson = getCurrentLesson();
+  if (!lesson) return;
+
+  currentQuestionIdx = 0;
+  wrongAttemptsOnCurrentQuestion = 0;
+
+  document.getElementById("lesson-badge").textContent =
+    `${CURRICULUM[activeGrade].label} • ${activeSemester === "sem1" ? "الفصل الأول" : "الفصل الثاني"}`;
+  document.getElementById("lesson-title").textContent = lesson.title;
+  document.getElementById("lesson-key-text").innerHTML = formatMathText(lesson.key);
+
+  const pointsBox = document.getElementById("core-points-container");
+  pointsBox.innerHTML = "";
+  lesson.points.slice(0, 3).forEach((pt, i) => {
+    const div = document.createElement("div");
+    div.className = "point-card";
+    div.innerHTML = `<strong>${i + 1}. ${pt.title}</strong><p style="margin:6px 0 0; font-size:0.92rem; line-height:1.6;">${formatMathText(pt.body)}</p>`;
+    pointsBox.appendChild(div);
+  });
+
+  document.getElementById("reading-box").classList.add("hidden");
+  document.getElementById("reading-feedback").classList.add("hidden");
+
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const lesson = getCurrentLesson();
+  if (!lesson || !lesson.questions.length) return;
+
+  const q = lesson.questions[currentQuestionIdx % lesson.questions.length];
+  document.getElementById("question-variant-label").textContent =
+    wrongAttemptsOnCurrentQuestion > 0 ? "سؤال بديل لتثبيت المفهوم" : "السؤال التفاعلي";
+  document.getElementById("question-prompt").innerHTML = formatMathText(q.prompt);
+
+  const feedback = document.getElementById("question-feedback");
+  feedback.classList.add("hidden");
+  feedback.className = "feedback-box hidden";
+
+  const remediationBox = document.getElementById("remediation-box");
+  remediationBox.classList.add("hidden");
+
+  const optionsContainer = document.getElementById("options-container");
+  optionsContainer.innerHTML = "";
+
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.innerHTML = formatMathText(opt);
+    btn.onclick = () => handleAnswerSelection(idx, q, lesson);
+    optionsContainer.appendChild(btn);
+  });
+}
+
+function handleAnswerSelection(selectedIdx, q, lesson) {
+  const feedback = document.getElementById("question-feedback");
+  const remediationBox = document.getElementById("remediation-box");
+  feedback.classList.remove("hidden");
+
+  if (selectedIdx === q.correct) {
+    feedback.className = "feedback-box feedback-success";
+    feedback.innerHTML = "أحسنتِ! إجابة صحيحة ودقيقة.";
+    remediationBox.classList.add("hidden");
+    wrongAttemptsOnCurrentQuestion = 0;
+    recordStudentActivity("إجابة صحيحة في التدريب", { scoreInfo: "100%" });
+    currentQuestionIdx = (currentQuestionIdx + 1) % lesson.questions.length;
+  } else {
+    wrongAttemptsOnCurrentQuestion += 1;
+    feedback.className = "feedback-box feedback-error";
+    feedback.innerHTML = "ليست الدقيقة بعد — راجعي التوضيح والمقطع الإثرائي أو جرّبي سؤالاً بديلاً.";
+
+    remediationBox.classList.remove("hidden");
+    document.getElementById("remediation-note").innerHTML = formatMathText(q.remediationNote);
+    const query = encodeURIComponent(lesson.videoQuery || lesson.title);
+    document.getElementById("remediation-video-link").href =
+      `https://www.youtube.com/results?search_query=${query}`;
+
+    recordStudentActivity("محاولة تحتاج إثراءً", { scoreInfo: "إعادة محاولة" });
+
+    if (lesson.questions.length > 1) {
+      currentQuestionIdx = (currentQuestionIdx + 1) % lesson.questions.length;
+      setTimeout(() => {
+        if (!document.getElementById("remediation-box").classList.contains("hidden")) {
+          renderQuestion();
+          document.getElementById("remediation-box").classList.remove("hidden");
+        }
+      }, 900);
+    }
+  }
+}
+
+function showReadingComprehension() {
+  const lesson = getCurrentLesson();
+  if (!lesson || !lesson.reading) return;
+
+  const box = document.getElementById("reading-box");
+  const feedback = document.getElementById("reading-feedback");
+  feedback.classList.add("hidden");
+  box.classList.remove("hidden");
+
+  document.getElementById("reading-passage").innerHTML = formatMathText(lesson.reading.passage);
+  document.getElementById("reading-question").innerHTML = formatMathText(lesson.reading.question);
+
+  const optsEl = document.getElementById("reading-options");
+  optsEl.innerHTML = "";
+
+  lesson.reading.options.forEach((opt, idx) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.innerHTML = formatMathText(opt);
+    btn.onclick = () => {
+      feedback.classList.remove("hidden");
+      if (idx === lesson.reading.correct) {
+        feedback.className = "feedback-box feedback-success";
+        feedback.textContent = "ممتازة! أتقنتِ الفهم القرائي لهذا الدرس (الدرجة: 10/10).";
+        recordStudentActivity("فهم قرائي ناجح", { scoreInfo: "10/10" });
+      } else {
+        feedback.className = "feedback-box feedback-error";
+        feedback.textContent = "أعيدي قراءة المعطيات في النص بدقة ثم اختاري الإجابة الأنسب.";
+        recordStudentActivity("فهم قرائي - إعادة محاولة", { scoreInfo: "تحت المراجعة" });
+      }
+    };
+    optsEl.appendChild(btn);
+  });
+}
+
+function initGraphCanvas() {
+  const canvas = document.getElementById("math-graph-canvas");
+  if (!canvas) return;
+  drawGraph();
+
+  canvas.onclick = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const px = (e.clientX - rect.left) * scaleX;
+    const py = (e.clientY - rect.top) * scaleY;
+
+    const midX = canvas.width / 2;
+    const midY = canvas.height / 2;
+    const step = 22;
+
+    const gx = Math.round((px - midX) / step);
+    const gy = Math.round((midY - py) / step);
+
+    if (graphPoints.length >= 2) {
+      graphPoints = [];
+    }
+    graphPoints.push({ x: gx, y: gy });
+    drawGraph();
+  };
+}
+
+function resetGraphPoints() {
+  graphPoints = [];
+  drawGraph();
+}
+
+function drawGraph() {
+  const canvas = document.getElementById("math-graph-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width;
+  const h = canvas.height;
+  const midX = w / 2;
+  const midY = h / 2;
+  const step = 22;
+
+  ctx.clearRect(0, 0, w, h);
+
+  ctx.fillStyle = "rgba(13, 148, 136, 0.08)";
+  ctx.fillRect(0, 0, w, midY);
+
+  ctx.strokeStyle = "#e2e8f0";
+  ctx.lineWidth = 1;
+  for (let x = midX % step; x < w; x += step) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, h);
+    ctx.stroke();
+  }
+  for (let y = midY % step; y < h; y += step) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(w, y);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle = "#334155";
+  ctx.lineWidth = 1.6;
+  ctx.beginPath();
+  ctx.moveTo(0, midY);
+  ctx.lineTo(w, midY);
+  ctx.moveTo(midX, 0);
+  ctx.lineTo(midX, h);
+  ctx.stroke();
+
+  const readout = document.getElementById("graph-readout");
+  if (graphPoints.length === 0) {
+    readout.textContent = "النقاط: لم تُحدّد بعد | الميل: —";
+    return;
+  }
+
+  graphPoints.forEach((pt, idx) => {
+    const cx = midX + pt.x * step;
+    const cy = midY - pt.y * step;
+    ctx.fillStyle = idx === 0 ? "#3730a3" : "#0d9488";
+    ctx.beginPath();
+    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  if (graphPoints.length === 1) {
+    const p1 = graphPoints[0];
+    readout.textContent = `النقطة الأولى: (${p1.x}, ${p1.y}) — حدّدي النقطة الثانية لحساب الميل`;
+  } else {
+    const [p1, p2] = graphPoints;
+    const x1 = midX + p1.x * step;
+    const y1 = midY - p1.y * step;
+    const x2 = midX + p2.x * step;
+    const y2 = midY - p2.y * step;
+
+    ctx.strokeStyle = "#3730a3";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
+    const dx = p2.x - p1.x;
+    const dy = p2.y - p1.y;
+    const slopeText = dx === 0 ? "غير معرّف (خط رأسي)" : `${dy}/${dx} (${(dy / dx).toFixed(2)})`;
+    readout.textContent = `النقطتان: (${p1.x}, ${p1.y}) و (${p2.x}, ${p2.y}) | الميل: ${slopeText}`;
+  }
+}
+
+function openTeacherDashboard() {
+  const pin = prompt("أدخلي رمز الدخول الخاص بالمعلمة:");
+  if (pin !== "1234") {
+    if (pin !== null) alert("رمز الدخول غير صحيح.");
+    return;
+  }
+
+  document.getElementById("login-screen").classList.add("hidden");
+  document.getElementById("main-app").classList.add("hidden");
+  document.getElementById("teacher-screen").classList.remove("hidden");
+
+  renderTeacherLogs();
+}
+
+function closeTeacherDashboard() {
+  document.getElementById("teacher-screen").classList.add("hidden");
+  if (currentStudent) {
+    document.getElementById("main-app").classList.remove("hidden");
+  } else {
+    document.getElementById("login-screen").classList.remove("hidden");
+  }
+}
+
+function renderTeacherLogs() {
+  const logs = loadLogs();
+  const container = document.getElementById("teacher-logs-container");
+  if (!logs.length) {
+    container.innerHTML = "<p>لا توجد سجلات تفاعل مسجلة بعد.</p>";
+    return;
+  }
+
+  let rows = logs.map((item, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      <td>${item.name}</td>
+      <td>${item.gradeLabel}</td>
+      <td>${item.semesterLabel}</td>
+      <td>${item.lessonTitle}</td>
+      <td>${item.actionType}</td>
+      <td>${item.scoreInfo}</td>
+      <td>${item.timestamp}</td>
+    </tr>
+  `).join("");
+
+  container.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>اسم الطالبة</th>
+          <th>المرحلة</th>
+          <th>الفصل</th>
+          <th>الدرس</th>
+          <th>النشاط</th>
+          <th>النتيجة</th>
+          <th>الوقت</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function exportTeacherReport() {
+  const logs = loadLogs();
+  const htmlContent = `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>تقرير منصة عباقرة الرياضيات</title></head><body><h2>تقرير متابعة الطالبات — أ. Aishah Jabour</h2><p>الرياضيات كنز من كنوز العلم وعلينا فهمها لنرتقي في علمنا</p><pre>${JSON.stringify(logs, null, 2)}</pre></body></html>`;
+  const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "genius-math-report.html";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

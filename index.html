@@ -6,20 +6,24 @@
 <title>منصة عباقرة الرياضيات | أ. Aishah Jabour</title>
 <style>
   :root {
-    --primary: #3730a3;
-    --primary-dark: #1e1b4b;
-    --accent: #0d9488;
-    --accent-light: #ccfbf1;
-    --bg: #f4f7fb;
-    --card: #ffffff;
+    --sapphire: #0f172a;
+    --sapphire-mid: #1e293b;
+    --turquoise: #0d9488;
+    --turquoise-dark: #0f766e;
+    --turquoise-soft: rgba(13, 148, 136, 0.12);
+    --gold: #d97706;
+    --gold-light: #fef3c7;
+    --gold-border: rgba(217, 119, 6, 0.35);
+    --pearl: #f8fafc;
+    --glass: rgba(255, 255, 255, 0.84);
+    --glass-strong: rgba(255, 255, 255, 0.94);
     --text: #0f172a;
-    --muted: #64748b;
-    --border: #e2e8f0;
+    --muted: #475569;
+    --border: rgba(15, 23, 42, 0.11);
     --success: #059669;
-    --warning: #d97706;
     --danger: #dc2626;
-    --radius: 16px;
-    --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    --radius: 18px;
+    --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
   }
 
   * {
@@ -35,7 +39,7 @@
   body {
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg);
+    background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 55%, #f0fdfa 100%);
     color: var(--text);
     min-height: 100vh;
     position: relative;
@@ -48,8 +52,8 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.075;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='%231e1b4b' font-family='Georgia, serif' font-size='22' font-weight='bold'%3E%3Ctext x='18' y='38'%3E%E2%88%91%3C/text%3E%3Ctext x='85' y='34'%3Ex²+y²%3C/text%3E%3Ctext x='175' y='42'%3E%CF%80%3C/text%3E%3Ctext x='225' y='36'%3E%E2%89%A0%3C/text%3E%3Ctext x='32' y='96'%3E%D8%B3%2B%D8%B5%3C/text%3E%3Ctext x='115' y='92'%3E%E2%88%9A144%3C/text%3E%3Ctext x='190' y='98'%3E%E2%88%AB%3C/text%3E%3Ctext x='20' y='158'%3E%D9%A1%D9%A2%D9%A3%3C/text%3E%3Ctext x='92' y='154'%3E%E2%88%9E%3C/text%3E%3Ctext x='152' y='158'%3Esin(θ)%3C/text%3E%3Ctext x='222' y='152'%3E%C3%B7%3C/text%3E%3Ctext x='36' y='222'%3E%E2%89%A4%3C/text%3E%3Ctext x='104' y='218'%3E7×8=56%3C/text%3E%3Ctext x='186' y='224'%3E%E2%88%86%3C/text%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Cg fill='%230f172a' font-family='Georgia, serif' font-size='22' font-weight='700'%3E%3Ctext x='28' y='56'%3E%E2%88%91%3C/text%3E%3Ctext x='185' y='48'%3E%CF%80%3C/text%3E%3Ctext x='305' y='74'%3Ex²+y²%3C/text%3E%3Ctext x='72' y='152'%3E%E2%88%9A144%3C/text%3E%3Ctext x='232' y='142'%3E%E2%88%AB%3C/text%3E%3Ctext x='34' y='254'%3Esin(θ)%3C/text%3E%3Ctext x='164' y='238'%3E%E2%88%9E%3C/text%3E%3Ctext x='286' y='268'%3E%E2%89%A4%3C/text%3E%3Ctext x='110' y='332'%3E%E2%88%86%3C/text%3E%3Ctext x='244' y='336'%3E%E2%89%A0%3C/text%3E%3C/g%3E%3C/svg%3E");
   }
 
   .app-shell {
@@ -57,7 +61,7 @@
     z-index: 1;
     max-width: 1120px;
     margin: 0 auto;
-    padding: 18px 16px 80px;
+    padding: 20px 16px 84px;
   }
 
   .hidden {
@@ -65,11 +69,12 @@
   }
 
   .topbar {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    background: linear-gradient(135deg, var(--sapphire) 0%, #13294b 58%, var(--turquoise-dark) 100%);
     color: #fff;
     border-radius: var(--radius);
-    padding: 18px 22px;
-    box-shadow: var(--shadow);
+    padding: 22px 24px;
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.16);
+    border: 1px solid rgba(251, 191, 36, 0.28);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -80,51 +85,59 @@
 
   .brand-title {
     margin: 0;
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     font-weight: 800;
     letter-spacing: -0.3px;
   }
 
   .brand-sub {
-    margin: 4px 0 0;
-    font-size: 0.92rem;
+    margin: 6px 0 0;
+    font-size: 0.94rem;
     opacity: 0.92;
   }
 
   .author-badge {
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    padding: 8px 14px;
+    background: rgba(217, 119, 6, 0.22);
+    border: 1px solid rgba(251, 191, 36, 0.55);
+    color: #fef3c7;
+    padding: 9px 16px;
     border-radius: 999px;
     font-size: 0.88rem;
     font-weight: 700;
   }
 
   .card {
-    background: var(--card);
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 22px;
+    padding: 24px;
     box-shadow: var(--shadow);
     margin-bottom: 18px;
   }
 
   .quote-banner {
-    background: linear-gradient(90deg, #eef2ff, #f0fdfa);
-    border-right: 5px solid var(--primary);
-    border-radius: 12px;
-    padding: 14px 18px;
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.04), rgba(13, 148, 136, 0.09), rgba(217, 119, 6, 0.08));
+    border-right: 5px solid var(--gold);
+    border-top: 1px solid var(--gold-border);
+    border-bottom: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 15px 18px;
     margin-bottom: 18px;
     font-weight: 700;
-    color: var(--primary-dark);
+    color: var(--sapphire);
     font-size: 1.02rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   label {
@@ -132,7 +145,7 @@
     font-weight: 700;
     margin-bottom: 6px;
     font-size: 0.92rem;
-    color: var(--text);
+    color: var(--sapphire);
   }
 
   input[type="text"],
@@ -140,16 +153,17 @@
     width: 100%;
     padding: 12px 14px;
     border-radius: 12px;
-    border: 1.5px solid var(--border);
+    border: 1.5px solid #cbd5e1;
     font-size: 0.98rem;
-    background: #fff;
+    background: var(--glass-strong);
     color: var(--text);
   }
 
   input[type="text"]:focus,
   select:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--turquoise);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.14);
   }
 
   .btn {
@@ -159,7 +173,7 @@
     font-size: 0.96rem;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.12s ease, opacity 0.15s ease;
+    transition: transform 0.12s ease, opacity 0.15s ease, box-shadow 0.15s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -171,24 +185,26 @@
   }
 
   .btn-primary {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--sapphire), #1e3a5f);
     color: #fff;
+    border: 1px solid rgba(217, 119, 6, 0.35);
   }
 
   .btn-accent {
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--turquoise), var(--turquoise-dark));
     color: #fff;
   }
 
   .btn-secondary {
-    background: #e2e8f0;
-    color: var(--text);
+    background: rgba(226, 232, 240, 0.85);
+    color: var(--sapphire);
+    border: 1px solid rgba(15, 23, 42, 0.1);
   }
 
   .btn-outline {
-    background: transparent;
-    border: 1.5px solid var(--primary);
-    color: var(--primary);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1.5px solid var(--turquoise);
+    color: var(--turquoise-dark);
   }
 
   .btn-sm {
@@ -203,16 +219,20 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    background: #eef2ff;
-    border: 1px solid #c7d2fe;
-    border-radius: 14px;
-    padding: 12px 16px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(13, 148, 136, 0.28);
+    border-right: 4px solid var(--gold);
+    border-radius: 16px;
+    padding: 13px 18px;
     margin-bottom: 18px;
+    box-shadow: var(--shadow);
   }
 
   .student-info {
     font-weight: 700;
-    color: var(--primary-dark);
+    color: var(--sapphire);
   }
 
   .selector-row {
@@ -230,67 +250,71 @@
   }
 
   .chip {
-    padding: 9px 14px;
+    padding: 9px 15px;
     border-radius: 999px;
-    border: 1.5px solid var(--border);
-    background: #fff;
-    color: var(--text);
+    border: 1.5px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--sapphire);
     font-weight: 700;
     font-size: 0.88rem;
     cursor: pointer;
   }
 
   .chip.active {
-    background: var(--primary);
+    background: var(--sapphire);
     color: #fff;
-    border-color: var(--primary);
+    border-color: var(--gold);
   }
 
   .lessons-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 8px;
   }
 
   .lesson-btn {
     text-align: right;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 1.5px solid var(--border);
-    background: #f8fafc;
-    color: var(--text);
+    padding: 13px 15px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(15, 23, 42, 0.11);
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--sapphire);
     font-weight: 700;
     cursor: pointer;
     font-size: 0.92rem;
   }
 
   .lesson-btn.active {
-    background: var(--accent-light);
-    border-color: var(--accent);
-    color: #0f766e;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.15), rgba(217, 119, 6, 0.08));
+    border-color: var(--turquoise);
+    color: var(--turquoise-dark);
   }
 
   .lesson-key-box {
-    background: #fffbeb;
-    border: 1.5px solid #fcd34d;
-    border-radius: 14px;
-    padding: 16px;
+    background: linear-gradient(135deg, rgba(254, 243, 199, 0.72), rgba(255, 255, 255, 0.88));
+    border: 1.5px solid rgba(217, 119, 6, 0.45);
+    border-radius: 16px;
+    padding: 16px 18px;
     margin-bottom: 16px;
+    color: var(--sapphire);
   }
 
   .core-points {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
+    gap: 14px;
     margin-bottom: 18px;
   }
 
   .point-card {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(13, 148, 136, 0.2);
+    border-top: 3px solid var(--turquoise);
+    border-radius: 14px;
+    padding: 15px;
   }
 
   .ltr-math {
@@ -301,9 +325,9 @@
   }
 
   .question-box {
-    background: #f8fafc;
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1.5px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
     padding: 18px;
     margin-bottom: 16px;
   }
@@ -319,16 +343,17 @@
     text-align: right;
     padding: 12px 16px;
     border-radius: 12px;
-    border: 1.5px solid var(--border);
-    background: #fff;
+    border: 1.5px solid rgba(15, 23, 42, 0.13);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--sapphire);
     font-size: 0.96rem;
     font-weight: 600;
     cursor: pointer;
   }
 
   .option-btn:hover {
-    border-color: var(--primary);
-    background: #eef2ff;
+    border-color: var(--turquoise);
+    background: rgba(13, 148, 136, 0.08);
   }
 
   .feedback-box {
@@ -351,10 +376,10 @@
   }
 
   .graph-lab {
-    background: #f0fdfa;
-    border: 1.5px solid #99f6e4;
-    border-radius: 14px;
-    padding: 16px;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.09), rgba(255, 255, 255, 0.85));
+    border: 1.5px solid rgba(13, 148, 136, 0.3);
+    border-radius: 16px;
+    padding: 18px;
     margin-top: 16px;
   }
 
@@ -364,9 +389,9 @@
     height: 260px;
     display: block;
     margin: 12px auto;
-    background: #fff;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 12px;
+    background: #ffffff;
+    border: 1.5px solid rgba(15, 23, 42, 0.16);
+    border-radius: 14px;
     touch-action: none;
   }
 
@@ -376,12 +401,18 @@
     left: 0;
     right: 0;
     z-index: 10;
-    background: rgba(30, 27, 75, 0.96);
+    background: rgba(15, 23, 42, 0.95);
     color: #fff;
+    border-top: 1px solid rgba(217, 119, 6, 0.4);
     padding: 10px 16px;
     font-size: 0.84rem;
     text-align: center;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .footer-bar strong {
+    color: #fbbf24;
   }
 
   table {
@@ -389,6 +420,7 @@
     border-collapse: collapse;
     margin-top: 12px;
     font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
   }
 
   th, td {
@@ -398,8 +430,8 @@
   }
 
   th {
-    background: #eef2ff;
-    color: var(--primary-dark);
+    background: rgba(15, 23, 42, 0.07);
+    color: var(--sapphire);
   }
 </style>
 </head>
@@ -418,7 +450,7 @@
   </div>
 
   <section id="login-screen" class="card">
-    <h2 style="margin-top:0; color:var(--primary-dark);">تسجيل دخول الطالبة</h2>
+    <h2 style="margin-top:0; color:var(--sapphire);">تسجيل دخول الطالبة</h2>
     <p style="color:var(--muted); margin-top:-6px;">أدخلي اسمكِ الثلاثي واختاري المرحلة الدراسية لتفعيل المتابعة والتدريب التفاعلي.</p>
 
     <div class="form-grid">
@@ -480,14 +512,14 @@
     <div id="lesson-workspace" class="card">
       <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;">
         <div>
-          <span id="lesson-badge" style="background:#eef2ff; color:var(--primary); padding:4px 10px; border-radius:999px; font-size:0.82rem; font-weight:700;"></span>
-          <h2 id="lesson-title" style="margin:8px 0 0; color:var(--primary-dark);"></h2>
+          <span id="lesson-badge" style="background:var(--turquoise-soft); color:var(--turquoise-dark); border:1px solid rgba(13,148,136,0.28); padding:4px 12px; border-radius:999px; font-size:0.82rem; font-weight:700;"></span>
+          <h2 id="lesson-title" style="margin:8px 0 0; color:var(--sapphire);"></h2>
         </div>
         <button class="btn btn-sm btn-accent" onclick="showReadingComprehension()">الفهم القرائي للدرس</button>
       </div>
 
       <div class="lesson-key-box">
-        <strong>مفتاح الدرس:</strong>
+        <strong style="color:var(--gold);">مفتاح الدرس:</strong>
         <p id="lesson-key-text" style="margin:6px 0 0; line-height:1.7;"></p>
       </div>
 
@@ -495,21 +527,21 @@
 
       <div class="question-box">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-          <strong>تدريب الفهم التفاعلي</strong>
+          <strong style="color:var(--sapphire);">تدريب الفهم التفاعلي</strong>
           <span id="question-variant-label" style="font-size:0.84rem; color:var(--muted); font-weight:700;">السؤال الأساسي</span>
         </div>
         <p id="question-prompt" style="font-size:1.05rem; font-weight:700; margin:10px 0;"></p>
         <div id="options-container" class="options-grid"></div>
         <div id="question-feedback" class="feedback-box hidden"></div>
-        <div id="remediation-box" class="hidden" style="margin-top:14px; padding:14px; border-radius:12px; background:#fff7ed; border:1px solid #fdba74;">
-          <strong>إثراء مصوّر موجّه عند الخطأ:</strong>
+        <div id="remediation-box" class="hidden" style="margin-top:14px; padding:14px; border-radius:12px; background:var(--gold-light); border:1px solid var(--gold-border);">
+          <strong style="color:var(--sapphire);">إثراء مصوّر موجّه عند الخطأ:</strong>
           <p id="remediation-note" style="margin:6px 0 10px; font-size:0.94rem;"></p>
           <a id="remediation-video-link" href="#" target="_blank" rel="noopener" class="btn btn-sm btn-primary">مشاهدة المقطع الإثرائي المحدد</a>
         </div>
       </div>
 
-      <div id="reading-box" class="question-box hidden" style="background:#f0f9ff; border-color:#bae6fd;">
-        <strong>الفهم القرائي الرياضي (تقييم تلقائي)</strong>
+      <div id="reading-box" class="question-box hidden" style="background:rgba(240, 253, 250, 0.9); border-color:rgba(13, 148, 136, 0.35);">
+        <strong style="color:var(--turquoise-dark);">الفهم القرائي الرياضي (تقييم تلقائي)</strong>
         <p id="reading-passage" style="margin:10px 0; line-height:1.75;"></p>
         <p id="reading-question" style="font-weight:700; margin:8px 0;"></p>
         <div id="reading-options" class="options-grid"></div>
@@ -517,13 +549,13 @@
       </div>
 
       <div class="graph-lab">
-        <strong>مختبر الرسم التفاعلي (الميل ومنطقة الحل)</strong>
-        <p style="margin:6px 0 10px; font-size:0.92rem; color:#115e59;">
+        <strong style="color:var(--sapphire);">مختبر الرسم التفاعلي (الميل ومنطقة الحل)</strong>
+        <p style="margin:6px 0 10px; font-size:0.92rem; color:var(--turquoise-dark);">
           انقري أو اسحبي على المستوى الإحداثي لتحديد نقطتين وحساب الميل $m = \frac{y_2 - y_1}{x_2 - x_1}$ واستكشاف منطقة الحل.
         </p>
         <canvas id="math-graph-canvas" class="graph-canvas" width="460" height="260"></canvas>
         <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
-          <div id="graph-readout" style="font-weight:700; color:#0f766e;">النقاط: لم تُحدّد بعد | الميل: —</div>
+          <div id="graph-readout" style="font-weight:700; color:var(--turquoise-dark);">النقاط: لم تُحدّد بعد | الميل: —</div>
           <button class="btn btn-sm btn-secondary" onclick="resetGraphPoints()">مسح النقاط</button>
         </div>
       </div>
@@ -533,7 +565,7 @@
   <section id="teacher-screen" class="card hidden">
     <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;">
       <div>
-        <h2 style="margin:0; color:var(--primary-dark);">لوحة متابعة المعلمة — أ. Aishah Jabour</h2>
+        <h2 style="margin:0; color:var(--sapphire);">لوحة متابعة المعلمة — أ. Aishah Jabour</h2>
         <p style="margin:4px 0 0; color:var(--muted); font-size:0.92rem;">«الرياضيات كنز من كنوز العلم وعلينا فهمها لنرتقي في علمنا»</p>
       </div>
       <div style="display:flex; gap:8px;">
@@ -1058,7 +1090,7 @@ function renderLessonWorkspace() {
   lesson.points.slice(0, 3).forEach((pt, i) => {
     const div = document.createElement("div");
     div.className = "point-card";
-    div.innerHTML = `<strong>${i + 1}. ${pt.title}</strong><p style="margin:6px 0 0; font-size:0.92rem; line-height:1.6;">${formatMathText(pt.body)}</p>`;
+    div.innerHTML = `<strong style="color:var(--sapphire);">${i + 1}. ${pt.title}</strong><p style="margin:6px 0 0; font-size:0.92rem; line-height:1.6;">${formatMathText(pt.body)}</p>`;
     pointsBox.appendChild(div);
   });
 
@@ -1230,7 +1262,7 @@ function drawGraph() {
     ctx.stroke();
   }
 
-  ctx.strokeStyle = "#334155";
+  ctx.strokeStyle = "#0f172a";
   ctx.lineWidth = 1.6;
   ctx.beginPath();
   ctx.moveTo(0, midY);
@@ -1248,7 +1280,7 @@ function drawGraph() {
   graphPoints.forEach((pt, idx) => {
     const cx = midX + pt.x * step;
     const cy = midY - pt.y * step;
-    ctx.fillStyle = idx === 0 ? "#3730a3" : "#0d9488";
+    ctx.fillStyle = idx === 0 ? "#0f172a" : "#0d9488";
     ctx.beginPath();
     ctx.arc(cx, cy, 6, 0, Math.PI * 2);
     ctx.fill();
@@ -1264,8 +1296,8 @@ function drawGraph() {
     const x2 = midX + p2.x * step;
     const y2 = midY - p2.y * step;
 
-    ctx.strokeStyle = "#3730a3";
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#0d9488";
+    ctx.lineWidth = 2.2;
     ctx.beginPath();
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
